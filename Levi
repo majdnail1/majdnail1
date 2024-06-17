@@ -1,0 +1,61 @@
+local player = game.Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+local humanoid = character:WaitForChild("Humanoid")
+local humanoidRootPart = character:WaitForChild("HumanoidRootPart")
+
+local flyEnabled = false
+local flySpeed = 50
+local turnSpeed = 2
+
+local ScreenGui = Instance.new("ScreenGui")
+ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+
+local MenuFrame = Instance.new("Frame")
+MenuFrame.Size = UDim2.new(0.2, 0, 1, 0)
+MenuFrame.Position = UDim2.new(0, 0, 0, 0)
+MenuFrame.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
+MenuFrame.Parent = ScreenGui
+
+local MenuTitle = Instance.new("TextLabel")
+MenuTitle.Text = "Levi"
+MenuTitle.Size = UDim2.new(1, 0, 0, 30)
+MenuTitle.Position = UDim2.new(0, 0, 0, 0)
+MenuTitle.TextColor3 = Color3.new(1, 1, 1)
+MenuTitle.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+MenuTitle.Font = Enum.Font.SourceSansBold
+MenuTitle.TextSize = 18
+MenuTitle.Parent = MenuFrame
+
+local FlyButton = Instance.new("TextButton")
+FlyButton.Text = "تمكين الطيران"
+FlyButton.Size = UDim2.new(1, 0, 0, 50)
+FlyButton.Position = UDim2.new(0, 0, 0, 40)
+FlyButton.BackgroundColor3 = Color3.fromRGB(80, 80, 80)
+FlyButton.Font = Enum.Font.SourceSansBold
+FlyButton.TextSize = 16
+FlyButton.Parent = MenuFrame
+
+local SpeedText = Instance.new("TextLabel")
+SpeedText.Text = "سرعة الطيران: " .. flySpeed
+SpeedText.Size = UDim2.new(1, 0, 0, 30)
+SpeedText.Position = UDim2.new(0, 0, 0, 100)
+SpeedText.TextColor3 = Color3.new(1, 1, 1)
+SpeedText.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+SpeedText.Font = Enum.Font.SourceSansBold
+SpeedText.TextSize = 16
+SpeedText.Parent = MenuFrame
+
+local TurnLeftButton = Instance.new("TextButton")
+TurnLeftButton.Text = "<--"
+TurnLeftButton.Size = UDim2.new(0.5, 0, 0, 50)
+TurnLeftButton.Position = UDim2.new(0, 0, 0, 160)
+TurnLeftButton.BackgroundColor3 = Color3.fromRGB(80, 80, 80)
+TurnLeftButton.Font = Enum.Font.SourceSansBold
+TurnLeftButton.TextSize = 16
+TurnLeftButton.Parent = MenuFrame
+
+local TurnRightButton = Instance.new("TextButton")
+TurnRightButton.Text = "-->"
+TurnRightButton.Size = UDim2.new(0.5, 0, 0, 50)
+TurnRightButton.Position = UDim2.new(0.5, 0, 0, 160)
+TurnRightButton.BackgroundColor3 = Color3.fromRGB(
